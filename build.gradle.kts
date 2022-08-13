@@ -27,6 +27,10 @@ dependencies {
 	implementation("io.agora.rtc:full-sdk:3.7.0.2")
 	implementation("io.agora:authentication:1.6.1")
 
+	implementation("org.springdoc:springdoc-openapi-data-rest:1.6.9")
+	implementation("org.springdoc:springdoc-openapi-ui:1.6.9")
+	implementation("org.springdoc:springdoc-openapi-kotlin:1.6.9")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
