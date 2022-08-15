@@ -24,6 +24,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("commons-codec:commons-codec:1.15")
+
 	implementation("io.agora.rtc:full-sdk:3.7.0.2")
 	implementation("io.agora:authentication:1.6.1")
 
@@ -44,3 +45,4 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
