@@ -1,5 +1,17 @@
-FROM openjdk:8-jdk-alpine
-VOLUME /tmp
-ARG JAR_FILE
-COPY ${JAR_FILE} call-video-service.jar
-ENTRYPOINT ["java","-jar","/call-video-service.jar"]
+FROM ubuntu:18.04
+
+# Install prerequisites
+RUN apt-get update && apt-get install -y \
+curl
+CMD /bin/bash
+
+FROM gradle:7.5-jdk8 as gradleimage
+COPY --chown=gradle:gradle . /home/gradle/src
+WORKDIR /home/gradle/src
+RUN gradle init && gradle build -x test
+
+FROM openjdk:8-jdk-alpine as callvideoservices
+EXPOSE 8080
+RUN mkdir /app
+COPY --from=gradleimage /home/gradle/src/build/libs/*.jar /app/CallVideoService-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","/app/CallVideoService-0.0.1-SNAPSHOT.jar"]
