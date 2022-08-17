@@ -4,3 +4,8 @@ build:
       dockerfile: Dockerfile
       target: callvideoservices
     web: Dockerfile 
+run:
+  web: bundle exec puma -C config/puma.rb
+  worker:
+    image: web 
+  
