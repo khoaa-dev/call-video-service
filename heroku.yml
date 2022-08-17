@@ -1,11 +1,6 @@
 build:
   docker:
-    release:
-      dockerfile: Dockerfile
-      target: callvideoservices
     web: Dockerfile 
 run:
-  web: java -jar -Dserver.port=$PORT /app/CallVideoService-0.0.1-SNAPSHOT.jar
-  worker:
-    image: web 
+  web: bundle exec puma -C config/puma.rb
   
