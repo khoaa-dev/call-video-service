@@ -2,7 +2,4 @@ build:
   docker:
     web: Dockerfile 
 run:
-  worker: 
-    command: 
-      - java -jar /app/CallVideoService-0.0.1-SNAPSHOT.jar -Dserver.port=$PORT
-    image: web
+  web: java -jar /app/CallVideoService-0.0.1-SNAPSHOT.jar -Dserver.port=$PORT
