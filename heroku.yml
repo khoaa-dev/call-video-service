@@ -4,5 +4,5 @@ build:
 run:
   worker: 
     command: 
-      - java -jar /app/CallVideoService-0.0.1-SNAPSHOT.jar --server.port=$PORT
+      - java -jar /app/CallVideoService-0.0.1-SNAPSHOT.jar -Dserver.port=$PORT
     image: web
