@@ -6,7 +6,7 @@ import javax.persistence.*
 @Table(name = "lesson")
 data class LessonCmd(
         @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: Int? = 1,
+        var id: Long? = 1,
 
         @Column(name = "id_student")
         var idStudent: Int? = 1,
@@ -21,5 +21,8 @@ data class LessonCmd(
         var timeStart: String? = "",
 
         @Column(name = "time_end")
-        var timeEnd: String? = ""
+        var timeEnd: String? = "",
+
+        @Column(name = "channel_name")
+        var channelName: String? = ""
 )

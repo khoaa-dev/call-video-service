@@ -11,7 +11,7 @@ import kotlin.time.TimedValue
 @Table(name = "lesson")
 data class Lesson(
         @Id
-        var id: Int? = 1,
+        var id: Long? = 1,
 
         @Column(name = "id_student")
         var idStudent: Int? = 1,
@@ -26,5 +26,8 @@ data class Lesson(
         var timeStart: String? = "",
 
         @Column(name = "time_end")
-        var timeEnd: String? = ""
+        var timeEnd: String? = "",
+
+        @Column(name = "channel_name")
+        var channelName: String? = ""
 )
