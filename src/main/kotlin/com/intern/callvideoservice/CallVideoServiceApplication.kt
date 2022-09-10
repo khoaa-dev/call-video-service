@@ -20,7 +20,7 @@ class CallVideoServiceApplication {
 	fun corsConfigurer(): WebMvcConfigurer? {
 		return object : WebMvcConfigurer {
 			override fun addCorsMappings(registry: CorsRegistry) {
-				registry.addMapping("/api").allowedOrigins("http://localhost:8080")
+				registry.addMapping("/api").allowedOrigins("http://localhost:3000")
 			}
 		}
 	}
