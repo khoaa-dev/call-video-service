@@ -11,20 +11,17 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 @OpenAPIDefinition
 @SpringBootApplication
 @EnableJpaAuditing
-class CallVideoServiceApplication {
-	fun main(args: Array<String>) {
-		runApplication<CallVideoServiceApplication>(*args)
-	}
+class CallVideoServiceApplication
 
-	@Bean
-	fun corsConfigurer(): WebMvcConfigurer? {
-		return object : WebMvcConfigurer {
-			override fun addCorsMappings(registry: CorsRegistry) {
-				registry.addMapping("/api").allowedOrigins("http://localhost:8080")
-			}
-		}
-	}
+fun main(args: Array<String>) {
+	runApplication<CallVideoServiceApplication>(*args)
 }
+
+
+
+
+
+
 
 
 
