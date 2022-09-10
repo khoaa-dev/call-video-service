@@ -34,7 +34,13 @@ dependencies {
 	implementation("org.springdoc:springdoc-openapi-ui:1.6.9")
 	implementation("org.springdoc:springdoc-openapi-kotlin:1.6.9")
 
+	implementation("com.ninja-squad:springmockk:3.1.1")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.0")
+	testImplementation(platform("org.junit:junit-bom:5.9.0"))
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.0")
+
 }
 
 tasks.withType<KotlinCompile> {
@@ -47,4 +53,5 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
 

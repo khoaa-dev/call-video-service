@@ -9,7 +9,7 @@ import javax.persistence.Table
 @Table(name = "agoraapp")
 data class AgoraApp(
     @Id
-    var id: Int? = 1,
+    var id: Long? = 1,
 
     @Column(name = "appid")
     var appID: String? = "",
