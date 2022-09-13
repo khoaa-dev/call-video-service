@@ -7,11 +7,11 @@ import io.agora.media.RtcTokenBuilder
 import io.agora.media.RtcTokenBuilder.Role
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.http.ResponseEntity
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 import java.util.*
 
 
-@Component
+@Service
 class AgoraAppService(val agoraAppRepository: AgoraAppRepository) {
 
     fun getAgoraAppInfo(id: Long): AgoraApp? {
