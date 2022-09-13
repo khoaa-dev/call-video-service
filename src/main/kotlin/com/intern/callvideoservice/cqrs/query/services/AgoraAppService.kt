@@ -1,16 +1,22 @@
 package com.intern.callvideoservice.cqrs.query.services
 
+import com.intern.callvideoservice.cqrs.query.domain.AgoraApp
 import com.intern.callvideoservice.cqrs.query.exception.AgoraAppException
 import com.intern.callvideoservice.cqrs.query.repositories.AgoraAppRepository
 import io.agora.media.RtcTokenBuilder
 import io.agora.media.RtcTokenBuilder.Role
-import org.springframework.stereotype.Component
+import org.springframework.data.repository.findByIdOrNull
+import org.springframework.http.ResponseEntity
+import org.springframework.stereotype.Service
+import java.util.*
 
 
-@Component
+@Service
 class AgoraAppService(val agoraAppRepository: AgoraAppRepository) {
 
-    fun findAll() = agoraAppRepository.findAll()
+    fun getAgoraAppInfo(id: Long): AgoraApp? {
+        return agoraAppRepository.findByIdOrNull(id)
+    }
 
     fun getToken(appID: String?, appCertificate: String?, channelName: String?): MutableMap<String, String> {
         if(appID.isNullOrEmpty()) throw AgoraAppException("appID not found")
