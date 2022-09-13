@@ -7,7 +7,10 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 import org.springframework.boot.runApplication
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.Bean
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing
+import org.springframework.web.servlet.config.annotation.CorsRegistry
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 @OpenAPIDefinition
 @SpringBootApplication
@@ -21,6 +24,16 @@ class CallVideoServiceApplication : SpringBootServletInitializer()
 fun main(args: Array<String>) {
 	runApplication<CallVideoServiceApplication>(*args)
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

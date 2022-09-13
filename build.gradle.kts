@@ -34,6 +34,7 @@ dependencies {
 	implementation("org.springdoc:springdoc-openapi-ui:1.6.11")
 	implementation("org.springdoc:springdoc-openapi-kotlin:1.6.11")
 
+
 	testImplementation("io.mockk:mockk:1.12.7")
 	testImplementation("org.apache.httpcomponents:httpclient")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
