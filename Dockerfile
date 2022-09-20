@@ -5,10 +5,12 @@ RUN apt-get update && apt-get install -y \
 curl
 CMD /bin/bash
 
+
 FROM gradle:7.5-jdk8 as gradleimage
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
 RUN gradle init && gradle build -x test
+
 
 FROM openjdk:8-jdk-alpine as callvideoservices
 EXPOSE 8080

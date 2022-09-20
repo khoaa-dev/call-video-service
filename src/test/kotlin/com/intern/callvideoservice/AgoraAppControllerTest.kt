@@ -53,8 +53,14 @@ internal class AgoraAppControllerTest(@Autowired val mockMvc: MockMvc) {
             val appCertificate = "ea8c7df30bd24067b7fc324256b54a8d"
             val channelName = "test"
 
+            var tokens: MutableMap<String, String> = mutableMapOf()
+            tokens["token"] = "006c7532cf603f1431b9201c6c9699a1515IAD5/qtLba5JIJYEJhg0TCxlqd5IGbBJJDrxKC8zuw7XPQx+f9gAAAAAIgB9mXlkUYAhYwQAAQDhPCBjAgDhPCBjAwDhPCBjBADhPCBj"
+
+            every { agoraAppService.getToken(appID, appCertificate, channelName) } returns tokens
+
+
             //when/then
-            mockMvc.perform(get("/generateToken/appID=$appID&appCertificate=$appCertificate&channelName=$channelName"))
+            mockMvc.perform(get("/api/generateToken/appID=$appID&appCertificate=$appCertificate&channelName=$channelName"))
                 .andExpect(status().isOk)
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.token").isNotEmpty)

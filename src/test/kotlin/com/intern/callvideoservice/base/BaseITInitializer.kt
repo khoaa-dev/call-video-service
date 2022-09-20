@@ -17,11 +17,8 @@ class BaseITInitializer : ApplicationContextInitializer<ConfigurableApplicationC
             val port: Int
         )
 
-        private val MYSQL = Container("call_video_service_test", 3368)
+        private val MYSQL = Container("test_1", 3369)
 
-        private val POSTGRES = Container("postgres_1", 5432)
-//        Wait.forListeningPort().withStartupTimeout(Duration.ofSeconds(120))
-//            .withOptions("--compatibility")
         private val COMPOSE_CONTAINER: KDockerComposeContainer by lazy {
             KDockerComposeContainer(File("docker-compose.yml"))
                 .withExposedService(MYSQL.serviceName, MYSQL.port)
@@ -33,7 +30,7 @@ class BaseITInitializer : ApplicationContextInitializer<ConfigurableApplicationC
         COMPOSE_CONTAINER.start()
         val containerUrl = getContainerUrl(MYSQL)
         System.out.println("containerUrl: $containerUrl")
-        val jdbcURL = "jdbc:postgresql://${getContainerUrl(MYSQL)}:${MYSQL.port}/callvideoservice"
+        val jdbcURL = "jdbc:mysql://${getContainerUrl(MYSQL)}:${MYSQL.port}/callvideoservice"
 
         TestPropertyValues.of(
             "spring.datasource.url=$jdbcURL"
@@ -44,7 +41,8 @@ class BaseITInitializer : ApplicationContextInitializer<ConfigurableApplicationC
         COMPOSE_CONTAINER.getServiceHost(container.serviceName, container.port)
 
 
+    private val POSTGRES = Container("postgres_1", 5432)
 
-
-
+//        Wait.forListeningPort().withStartupTimeout(Duration.ofSeconds(120))
+//            .withOptions("--compatibility")
 }

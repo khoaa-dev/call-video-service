@@ -16,20 +16,9 @@ class CallVideoServiceApplicationTests {
 	@Autowired
 	lateinit var restTemplate: TestRestTemplate
 
-
-
 	@Test
 	fun contextLoads() {
 
 	}
-
-//	@Test
-//	fun `when get called - then should bad request`() {
-//		val result = restTemplate.getForEntity("http://localhost:8080/api/agoraApp/id=2", AgoraApp::class.java);
-//
-//		assertNotNull(result)
-//		assertEquals(HttpStatus.BAD_REQUEST, result?.statusCode)
-//	}
-
 
 }
