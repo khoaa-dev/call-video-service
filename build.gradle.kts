@@ -23,9 +23,12 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	runtimeOnly("mysql:mysql-connector-java")
+	runtimeOnly("org.postgresql:postgresql")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("commons-codec:commons-codec:1.15")
+	implementation("org.postgresql:postgresql:42.5.0")
+
 
 	implementation("io.agora.rtc:full-sdk:3.7.0.2")
 	implementation("io.agora:authentication:1.6.1")
